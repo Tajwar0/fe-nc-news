@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 const axios = require("axios").default;
 
 export default function Articles() {
-    const [articles, setArticles] = useState()
+    const [allArticles, setAllArticles] = useState()
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         setIsLoading(true);
         axios
@@ -14,7 +14,7 @@ export default function Articles() {
           )
           .then((response) => {
             setIsLoading(false);
-            setArticles(response.data.items);
+            setAllArticles(response.data.allArticles);
           });
       }, []);
 
@@ -28,25 +28,28 @@ export default function Articles() {
       } else{
         return (
             <div>
-              <ItemsFilter setCategory={setCategory} />
+              <h1>All Articles</h1>
               <ul>
-                {items.map((item) => {
-                  return (             
-                    <li className="card" key={item.item_id}>
-                      <img src={item.img_url} alt={item.img_url} />
-                      <Link to={`/items/${item.item_id}`}>
+                {allArticles.map((article) => {
+                  return (
+                    <li className="card" key={article.article_id} >
+                      <Link to={`/articles/${article.article_id}`}>
                       <div className="container">
-                        <h4><b>{item.item_name}</b></h4>
-                        <p>{item.description}</p>
-                        <p><b>£{item.price / 100}</b></p>
-                        <p>{item.category_name}</p>
+                        <h4><b>Title:</b> {article.title}</h4> 
+                        <p><b>Author:</b> {article.author}</p>
+                        <p><b>Topic:</b> {article.topic}</p>
+                        <p><b>Article:</b><br/> {article.body}</p>
+                        <p><b>Votes: {article.votes}</b></p>
                       </div>
                       </Link>
                       <hr />
-                    </li>            
+                    </li>
+                              
                   );
                 })}
               </ul>
             </div>
           );
         }
+      }
+

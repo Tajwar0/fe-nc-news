@@ -9,9 +9,6 @@ export default function NavBar() {
         <button>
             <Link to={"/articles"}>Articles</Link>
         </button>
-        <button>
-            <Link to={"/topics"}>Topics</Link>
-        </button>
     </nav>
   )
 }

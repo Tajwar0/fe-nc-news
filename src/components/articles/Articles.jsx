@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
 export default function Articles(props) {
@@ -29,6 +30,7 @@ export default function Articles(props) {
         return (
             <div>
               <h1>All Articles</h1>
+              <TopicsNavBar/>
               <ul>
                 {allArticles.map((article) => {
                   return (

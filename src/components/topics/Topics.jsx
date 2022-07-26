@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import {Link} from "react-router-dom"
+import SingleTopic from "./SingleTopic";
 const axios = require("axios").default;
 
 export default function Topics() {
@@ -14,7 +15,6 @@ export default function Topics() {
       )
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data);
         setTopics(response.data.topics);
       });
   }, []);
@@ -33,7 +33,7 @@ export default function Topics() {
           {topics.map((topic) =>{
             return (
             <li className="card" key={topic.slug} >
-            <Link to={`/topics:${topic.slug}`}>
+            <Link to={`/topics:topic.slug`}>
             <div className="container">
               <h4><b>Topic:</b> {topic.slug}</h4> 
               <p>Description: {topic.description}</p>     

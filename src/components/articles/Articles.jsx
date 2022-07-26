@@ -1,23 +1,29 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
-export default function Articles(props) {
+export default function Articles() {
     const [allArticles, setAllArticles] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    
+    const {topic} = useParams();
+
     useEffect(() => {
         setIsLoading(true);
         axios
           .get(
-            `https://tajwars-news.herokuapp.com/api/articles`
+            `https://tajwars-news.herokuapp.com/api/articles`,
+            {
+              params: {
+                         topic: topic
+                      }
+            } 
           )
           .then((response) => {
             setIsLoading(false);
             setAllArticles(response.data.allArticles);
           });
-      }, []);
+      }, [topic]);
 
       if (isLoading) {
         return (
@@ -45,8 +51,7 @@ export default function Articles(props) {
                       </div>
                       </Link>
                       <hr />
-                    </li>
-                              
+                    </li>                              
                   );
                 })}
               </ul>

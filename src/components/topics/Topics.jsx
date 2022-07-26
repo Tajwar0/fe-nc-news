@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import {Link} from "react-router-dom"
-import SingleTopic from "./SingleTopic";
+import TopicsNavBar from "../articles/TopicsNavBar";
 const axios = require("axios").default;
 
 export default function Topics() {
@@ -29,11 +29,13 @@ export default function Topics() {
     return (
       <div>
         <h1>All Topics</h1>
+        <TopicsNavBar/>
         <ul>
           {topics.map((topic) =>{
+            {console.log(topic.slug)}
             return (
-            <li className="card" key={topic.slug} >
-            <Link to={`/topics:topic.slug`}>
+            <li className="card" key={topic.slug} >              
+            <Link to={`/articles/${topic.slug}`}>
             <div className="container">
               <h4><b>Topic:</b> {topic.slug}</h4> 
               <p>Description: {topic.description}</p>     
@@ -43,8 +45,7 @@ export default function Topics() {
           </li>
             );
           })}
-        </ul>
-        
+        </ul>        
       </div>
     )
   }

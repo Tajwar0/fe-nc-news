@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import SingleArticle from "./SingleArticle";
 const axios = require("axios").default;
 
 export default function Articles(props) {
@@ -33,7 +34,7 @@ export default function Articles(props) {
                 {allArticles.map((article) => {
                   return (
                     <li className="card" key={article.article_id} >
-                      <Link to={`/articles/${article.article_id}`}>
+                       <Link to={`/articles/${article.article_id}`}>
                       <div className="container">
                         <h4><b>Title:</b> {article.title}</h4> 
                         <p><b>Author:</b> {article.author}</p>
@@ -43,8 +44,7 @@ export default function Articles(props) {
                       </div>
                       </Link>
                       <hr />
-                    </li>
-                              
+                    </li>                              
                   );
                 })}
               </ul>

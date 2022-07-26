@@ -8,13 +8,13 @@ export default function TopicsNavBar() {
             <Link to={"/topics"}>All Topics</Link>
         </button>
         <button>
-            <Link to={"/articles/coding"}>Coding</Link>
+            <Link to={"/articles/topics/coding"}>Coding</Link>
         </button>
         <button>
-            <Link to={"/articles/football"}>Football</Link>
+            <Link to={"/articles/topics/football"}>Football</Link>
         </button>
         <button>
-            <Link to={"/articles/cooking"}>Cooking</Link>
+            <Link to={"/articles/topics/cooking"}>Cooking</Link>
         </button>
     </nav>
   )

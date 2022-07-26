@@ -32,10 +32,9 @@ export default function Topics() {
         <TopicsNavBar/>
         <ul>
           {topics.map((topic) =>{
-            {console.log(topic.slug)}
             return (
             <li className="card" key={topic.slug} >              
-            <Link to={`/articles/${topic.slug}`}>
+            <Link to={`/articles/topic/${topic.slug}`}>
             <div className="container">
               <h4><b>Topic:</b> {topic.slug}</h4> 
               <p>Description: {topic.description}</p>     

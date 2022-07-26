@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react'
-import { useParams, Link  } from 'react-router-dom'
+import { useParams  } from 'react-router-dom'
 const axios = require("axios").default;
 
 export default function SingleArticle() {
@@ -16,7 +16,7 @@ export default function SingleArticle() {
         setIsLoading(false);
         setSelectedArticle(response.data.article);
       });
-  }, []);
+  }, [article_id]);
   if (isLoading) {
     return (
       <img
@@ -28,17 +28,13 @@ export default function SingleArticle() {
     return (
       <div>
         <h2>{selectedArticle.title}</h2>
-        <ul>
-              <li className="card" key={selectedArticle.article_id} >
-                <div className="container">              
+                <div className="container card" key={selectedArticle.article_id} >              
                   <p><b>Author:</b> {selectedArticle.author}</p>
                   <p><b>Topic:</b> {selectedArticle.topic}</p>
-                  <p><b>selectedArticle:</b><br/> {selectedArticle.body}</p>
+                  <p><b>Article:</b><br/> {selectedArticle.body}</p>
                   <p><b>Votes: {selectedArticle.votes}</b></p>
                 </div>
                 <hr />
-              </li>    
-        </ul>
       </div>
     );
   }

@@ -7,7 +7,7 @@ export default function NavBar() {
             <Link to={"/"}>Home</Link>
         </button>
         <button>
-            <Link to={"/api/articles"}>Articles</Link>
+            <Link to={"/articles"}>Articles</Link>
         </button>
         
     </nav>

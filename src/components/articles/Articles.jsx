@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 const axios = require("axios").default;
 
-export default function Articles() {
-    const [allArticles, setAllArticles] = useState()
+export default function Articles(props) {
+    const [allArticles, setAllArticles] = useState();
     const [isLoading, setIsLoading] = useState(true);
     
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Articles() {
                         <h4><b>Title:</b> {article.title}</h4> 
                         <p><b>Author:</b> {article.author}</p>
                         <p><b>Topic:</b> {article.topic}</p>
-                        <p><b>Article:</b><br/> {article.body}</p>
+                        <p><b>Article:</b><br/> ...</p>
                         <p><b>Votes: {article.votes}</b></p>
                       </div>
                       </Link>

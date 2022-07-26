@@ -14,7 +14,6 @@ export default function Topics() {
       )
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data);
         setTopics(response.data.topics);
       });
   }, []);

@@ -14,7 +14,6 @@ export default function SingleArticle() {
       )
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data.article);
         setSelectedArticle(response.data.article);
       });
   }, []);

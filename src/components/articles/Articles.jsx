@@ -35,7 +35,7 @@ export default function Articles() {
       } else{
         return (
             <div>
-              <h1>All Articles</h1>
+              <h1>{topic===undefined? "Articles": topic[0].toUpperCase()+topic.substring(1,)}</h1>
               <TopicsNavBar/>
               <ul>
                 {allArticles.map((article) => {

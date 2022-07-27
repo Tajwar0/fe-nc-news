@@ -3,7 +3,10 @@ import {Link} from "react-router-dom"
 export default function TopicsNavBar() {
   return (
     <nav>
-        <button>Choose a topic</button>
+        <button>
+            <Link to={"/articles"}>All Articles</Link>
+        </button>
+        <button>Choose a topic</button>    
         <button>
             <Link to={"/topics"}>All Topics</Link>
         </button>

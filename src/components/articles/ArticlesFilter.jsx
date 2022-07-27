@@ -1,7 +1,3 @@
-
-
 export default function ArticlesFilter() {
-  return (
-    <div>ArticlesFilter</div>
-  )
+  return <div>ArticlesFilter</div>;
 }

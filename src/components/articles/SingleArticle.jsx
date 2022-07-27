@@ -1,17 +1,16 @@
-import React, { useState , useEffect} from 'react'
-import { useParams  } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Votes from "../Votes";
 const axios = require("axios").default;
 
 export default function SingleArticle() {
-  const {article_id} = useParams();
-  const [selectedArticle, setSelectedArticle] = useState()
+  const { article_id } = useParams();
+  const [selectedArticle, setSelectedArticle] = useState();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(
-        `https://tajwars-news.herokuapp.com/api/articles/${article_id}`
-      )
+      .get(`https://tajwars-news.herokuapp.com/api/articles/${article_id}`)
       .then((response) => {
         setIsLoading(false);
         setSelectedArticle(response.data.article);
@@ -24,17 +23,27 @@ export default function SingleArticle() {
         alt="Loading..."
       />
     );
-  }else{
+  } else {
     return (
       <div>
         <h2>{selectedArticle.title}</h2>
-                <div className="container card" key={selectedArticle.article_id} >              
-                  <p><b>Author:</b> {selectedArticle.author}</p>
-                  <p><b>Topic:</b> {selectedArticle.topic}</p>
-                  <p><b>Article:</b><br/> {selectedArticle.body}</p>
-                  <p><b>Votes: {selectedArticle.votes}</b></p>
-                </div>
-                <hr />
+        <div className="container card" key={selectedArticle.article_id}>
+          <p>
+            <b>Author:</b> {selectedArticle.author}
+          </p>
+          <p>
+            <b>Topic:</b> {selectedArticle.topic}
+          </p>
+          <p>
+            <b>Article:</b>
+            <br /> {selectedArticle.body}
+          </p>
+          <Votes
+            articleVotes={selectedArticle.votes}
+            article_id={selectedArticle.article_id}
+          />
+        </div>
+        <hr />
       </div>
     );
   }

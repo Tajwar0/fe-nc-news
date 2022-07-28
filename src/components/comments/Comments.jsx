@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NewComment from "./NewComment";
 const axios = require("axios").default;
 
 export default function Comments({ article_id }) {
@@ -12,12 +13,18 @@ export default function Comments({ article_id }) {
         setArticleComments(response.data.articleComments);
       });
   }, [article_id]);
+
+  function handleButtonClick() {
+    // take user to bottom of page
+  }
   if (articleComments === undefined) {
     return [];
   } else {
     return (
       <div className="commentsSection">
+        {/* <button>{newCommentForm()}</button> */}
         <h3>Comments section</h3>
+        <NewComment article_id={article_id} />
         <ul className="commentsList">
           {articleComments.map((comment) => {
             return (
@@ -42,6 +49,7 @@ export default function Comments({ article_id }) {
             );
           })}
         </ul>
+        <NewComment />
       </div>
     );
   }

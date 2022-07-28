@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Votes from "../Votes";
+import ArticlesFilter from "./ArticlesFilter";
 import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
@@ -8,6 +9,8 @@ export default function Articles() {
   const [allArticles, setAllArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
+  const [category, setCategory] = useState();
+  const [order, setOrder] = useState();
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,6 +43,7 @@ export default function Articles() {
         </h1>
         <TopicsNavBar />
         <hr />
+        <ArticlesFilter />
         <ul>
           {allArticles.map((article) => {
             return (

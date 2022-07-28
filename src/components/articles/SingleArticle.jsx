@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comments from "../comments/Comments";
 import Votes from "../Votes";
 const axios = require("axios").default;
 
 export default function SingleArticle() {
   const { article_id } = useParams();
-  const [selectedArticle, setSelectedArticle] = useState();
+  const [selectedArticle, setSelectedArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
@@ -44,6 +45,7 @@ export default function SingleArticle() {
           />
         </div>
         <hr />
+        <Comments article_id={selectedArticle.article_id} />
       </div>
     );
   }

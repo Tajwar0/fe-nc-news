@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Votes from "../Votes";
 import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
@@ -35,15 +34,14 @@ export default function Articles() {
       <div>
         <h1>
           {topic === undefined
-            ? "All Articles"
+            ? "Articles"
             : topic[0].toUpperCase() + topic.substring(1)}
         </h1>
         <TopicsNavBar />
-        <hr />
         <ul>
           {allArticles.map((article) => {
             return (
-              <li className="card " key={article.article_id}>
+              <li className="card" key={article.article_id}>
                 <Link to={`/articles/${article.article_id}`}>
                   <div className="container">
                     <h4>
@@ -59,12 +57,11 @@ export default function Articles() {
                       <b>Article:</b>
                       <br /> ...
                     </p>
+                    <p>
+                      <b>Votes: {article.votes}</b>
+                    </p>
                   </div>
                 </Link>
-                <Votes
-                  articleVotes={article.votes}
-                  article_id={article.article_id}
-                />
                 <hr />
               </li>
             );

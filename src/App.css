@@ -27,6 +27,7 @@ background: linear-gradient(to left, #C64598, #7A40BE);
 
 ul{
   list-style: none;
+  padding-left: 0;
 }
 
 .votes{

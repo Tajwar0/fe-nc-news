@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-<<<<<<< HEAD
-import Votes from "../Votes";
 import ArticlesFilter from "./ArticlesFilter";
-=======
->>>>>>> 57f6f1522bd3b647918540ab50c6554f735349e7
 import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
@@ -45,11 +41,8 @@ export default function Articles() {
             : topic[0].toUpperCase() + topic.substring(1)}
         </h1>
         <TopicsNavBar />
-<<<<<<< HEAD
         <hr />
         <ArticlesFilter />
-=======
->>>>>>> 57f6f1522bd3b647918540ab50c6554f735349e7
         <ul>
           {allArticles.map((article) => {
             return (

@@ -27,24 +27,8 @@ export default function ArticlesFilter({
         </select>
         <br />
       </form>
-      <form>
-        <label htmlFor="Categories">Sort by:</label>
-        <select
-          name="sortBy"
-          id="categories"
-          onChange={(e) => {
-            category === ""
-              ? navigate(`?order=${e.target.value}`)
-              : navigate(`${category}&order=${e.target.value}`);
-            setOrder(`{e.target.value}`);
-          }}
-        >
-          <option>Default</option>
-          <option value="ASC">Ascending</option>
-          <option value="DESC">Descending</option>
-        </select>
-        <br />
-      </form>
+      <button>Ascending</button>
+      <button>Descending</button>
     </div>
   );
 }

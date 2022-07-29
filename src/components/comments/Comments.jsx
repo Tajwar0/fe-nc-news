@@ -13,7 +13,7 @@ export default function Comments({ article_id }) {
       });
   }, [article_id]);
   if (articleComments === undefined) {
-    return [];
+    return;
   } else {
     return (
       <div className="commentsSection">

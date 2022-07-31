@@ -11,7 +11,7 @@ export default function Votes({ articleVotes, article_id }) {
         inc_votes: localVotes,
       }
     );
-  }, [localVotes]);
+  }, [localVotes, article_id]);
 
   function handleClickUp(event) {
     event.preventDefault();

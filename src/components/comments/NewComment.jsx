@@ -1,11 +1,10 @@
 import axios from "axios";
-import React, { useEffect } from "react";
 import { UserContext } from "../../contexts/User";
 import { useState, useContext } from "react";
 
 export default function NewComment({ article_id }) {
   const [commentValue, setCommentValue] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [commentSubmitted, setCommentSubmitted] = useState(false);
   function handleSubmit(e) {
     setCommentSubmitted(false);

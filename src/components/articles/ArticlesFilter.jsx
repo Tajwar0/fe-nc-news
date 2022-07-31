@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ArticlesFilter({
@@ -32,7 +31,6 @@ export default function ArticlesFilter({
           <option value="">Select</option>
           <option value="author">Author</option>
           <option value="created_at">Date</option>
-          <option value="comment_count">Comment count</option>
           <option value="title">Title</option>
           <option value="topic">Topic</option>
           <option value="votes">Votes</option>

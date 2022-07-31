@@ -8,6 +8,7 @@ export default function SingleArticle() {
   const { article_id } = useParams();
   const [selectedArticle, setSelectedArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -16,7 +17,8 @@ export default function SingleArticle() {
         setIsLoading(false);
         setSelectedArticle(response.data.article);
       });
-  }, [article_id]);
+  }, [article_id, ]);
+
   if (isLoading) {
     return (
       <img

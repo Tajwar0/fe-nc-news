@@ -16,9 +16,6 @@ export default function Comments({ article_id }) {
       });
   }, [article_id, commentDeleted]);
 
-  // function handleButtonClick() {
-  // take user to bottom of page
-  // }
   if (articleComments === undefined) {
     return;
   } else {

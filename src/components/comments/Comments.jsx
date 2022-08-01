@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import NewComment from "./NewComment";
+import DeleteComment from "./DeleteComment";
 const axios = require("axios").default;
 
 export default function Comments({ article_id }) {
   const [articleComments, setArticleComments] = useState();
+  const [commentDeleted, setCommentDeleted] = useState(false);
   useEffect(() => {
     axios
       .get(
@@ -12,7 +14,7 @@ export default function Comments({ article_id }) {
       .then((response) => {
         setArticleComments(response.data.articleComments);
       });
-  }, [article_id]);
+  }, [article_id, commentDeleted]);
 
   // function handleButtonClick() {
   // take user to bottom of page
@@ -43,6 +45,11 @@ export default function Comments({ article_id }) {
                     <b>Votes: </b>
                     {comment.votes}
                   </p>
+                  <DeleteComment
+                    commentUser={comment.author}
+                    comment_id={comment.comment_id}
+                    setCommentDeleted={setCommentDeleted}
+                  />
                 </div>
                 <hr />
               </li>

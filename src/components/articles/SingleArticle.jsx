@@ -17,7 +17,7 @@ export default function SingleArticle() {
         setIsLoading(false);
         setSelectedArticle(response.data.article);
       });
-  }, [article_id, ]);
+  }, [article_id]);
 
   if (isLoading) {
     return (

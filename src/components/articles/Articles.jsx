@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import ArticlesFilter from "./ArticlesFilter";
 import TopicsNavBar from "./TopicsNavBar";
 const axios = require("axios").default;
 
@@ -7,11 +8,13 @@ export default function Articles() {
   const [allArticles, setAllArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
+  const [category, setCategory] = useState("");
+  const [order, setOrder] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`https://tajwars-news.herokuapp.com/api/articles`, {
+      .get(`https://tajwars-news.herokuapp.com/api/articles${category}`, {
         params: {
           topic: topic,
         },
@@ -20,7 +23,7 @@ export default function Articles() {
         setIsLoading(false);
         setAllArticles(response.data.allArticles);
       });
-  }, [topic]);
+  }, [topic, category, order]);
 
   if (isLoading) {
     return (
@@ -38,6 +41,13 @@ export default function Articles() {
             : topic[0].toUpperCase() + topic.substring(1)}
         </h1>
         <TopicsNavBar />
+        <hr />
+        <ArticlesFilter
+          order={order}
+          setOrder={setOrder}
+          setCategory={setCategory}
+          category={category}
+        />
         <ul>
           {allArticles.map((article) => {
             return (
@@ -56,6 +66,9 @@ export default function Articles() {
                     <p>
                       <b>Article:</b>
                       <br /> ...
+                    </p>
+                    <p>
+                      <b>Comment Count:</b> {article.comment_count}
                     </p>
                     <p>
                       <b>Votes: {article.votes}</b>

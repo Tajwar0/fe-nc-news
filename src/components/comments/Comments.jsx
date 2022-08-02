@@ -21,7 +21,6 @@ export default function Comments({ article_id }) {
   } else {
     return (
       <div className="commentsSection">
-        {/* <button>{newCommentForm()}</button> */}
         <NewComment article_id={article_id} />
         <h3>Comments section</h3>
         <ul className="commentsList">

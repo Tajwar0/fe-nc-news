@@ -6,7 +6,9 @@ export default function NewComment({ article_id }) {
   const [commentValue, setCommentValue] = useState("");
   const { user } = useContext(UserContext);
   const [commentSubmitted, setCommentSubmitted] = useState(false);
+
   function handleSubmit(e) {
+    console.log(/^[a-zA-Z0-9@=\-'"]+/.test(commentValue));
     setCommentSubmitted(false);
     e.preventDefault();
     axios

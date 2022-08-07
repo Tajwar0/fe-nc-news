@@ -1,44 +1,15 @@
-Northcoders News
+# Tajwars News app
+This is the front end architecture of a full stack web application I developed whilst at Northcoders. The front end is live at [fe-new-website](https://tajwars-news.netlify.app/) utilizing netlify, and the back end can be found at [news-api](https://tajwars-news.herokuapp.com/api/articles).
 
-Northcoders News is a social news aggregation, web content rating, and discussion website.
+The front end architecture was built using React and CSS, implementing best practices throughout the project, including semantic HTML and optimistic rendering.
+## What is Tajwars-News?
 
-Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
+Tajwars-News is a news site which allows users to navigate and browse a multitude of articles which they can sort by various categories and selected topics. The user can also vote, leave comments and delete comments which they have previously made. For the sake of the project, as assigned, the user is set by default. The aim of this project was to create an easy to read website that can be clearly viewed in both mobile and desktop browsers, with a fully working backend that has endpoints which can be utilized.
 
-This sprint should consolidate your understanding of making a C.R.U.D application from a front end perspective.
-Kanban
-Link to your Trello Board here: https://trello.com/b/cEYt2hYP
+## To run this project yourself, you will simply need to follow the following instructions:
 
-To keep track of the tasks involved in this project we're going to use a kanban board. Ensure that you work on one ticket at time. You can click on the ticket to find out more information about what is required for the feature. A ticket is not considered complete unless both the happy path and errors response are handled and there is a basic structure to your styling.
+Copy the following code one line at a time into the terminal of the text editor of your choice, I recommend VSCode:
 
-We suggest you work through the tickets from top to bottom.
-Git Branching and Pull Requests
-
-You will be working on each ticket on a new branch.
-
-To create and switch to a new git branch use the command:
-
-git checkout -b <new branch name>
-
-This will create a branch and move over to that branch. (Omit the -b flag if you wish to switch to an already existing branch).
-
-We recommend that you name the branch something that clearley shows the ticket you are working on. eg. fe-ncnews-display-articles
-
-When pushing the branch to git hub ensure that you make reference to the branch you are pushing to on the remote.
-
-git push origin <branch name>
-
-From github you can make a pull request and share the link and ticket number on your nchelp with a zoom link for you to demo your feature. A tutor will swing by to review your code. Ensure that you keep your trello up to date whilst you await the PR approval.
-
-Once a pull request been accepted be sure to switch back to the main branch and pull down the updated changes.
-
-git checkout main
-
-git pull origin main
-
-You can tidy up your local branches once they have been pull into main by deleting them:
-
-git branch -D <local branch>
-
-Important
-
-This sprint is among the ones we'll ask you to complete in order to put you forward for jobs. Put a little bit of love into it! :) <3
+    git clone https://github.com/Tajwar0/fe-tajwars-news
+    npm install
+    npm start

@@ -13,12 +13,16 @@ export default function Articles() {
 
   useEffect(() => {
     setIsLoading(true);
+    console.log(topic);
     axios
-      .get(`https://tajwars-news.herokuapp.com/api/articles${category}`, {
-        params: {
-          topic: topic,
-        },
-      })
+      .get(
+        `https://tajwars-news.herokuapp.com/api/articles` + category + order,
+        {
+          params: {
+            topic: topic,
+          },
+        }
+      )
       .then((response) => {
         setIsLoading(false);
         setAllArticles(response.data.allArticles);
@@ -68,7 +72,7 @@ export default function Articles() {
                       <br /> ...
                     </p>
                     <p>
-                      <b>Comment Count:</b> {article.comment_count}
+                      <b>Comments:</b> {article.comment_count}
                     </p>
                     <p>
                       <b>Votes: {article.votes}</b>

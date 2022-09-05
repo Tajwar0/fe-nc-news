@@ -33,3 +33,9 @@ ul{
 .votes{
   color:#7A40BE
 }
+.topNavBar{
+  padding-top: 10px;
+}
+.sortByLabel{
+  padding-bottom: 10px;
+}

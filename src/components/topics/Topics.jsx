@@ -33,14 +33,13 @@ export default function Topics() {
           {topics.map((topic) => {
             return (
               <li className="card" key={topic.slug}>
-                <Link to={`/articles/topic/${topic.slug}`}>
-                  <div className="container">
-                    <h4>
-                      <b>Topic:</b> {topic.slug}
-                    </h4>
-                    <p>Description: {topic.description}</p>
-                  </div>
-                </Link>
+                <div className="container">
+                  <h4>
+                    <b>Topic:</b>{" "}
+                    {topic.slug[0].toUpperCase() + topic.slug.slice(1)}
+                  </h4>
+                  <p>Description: {topic.description}</p>
+                </div>
                 <hr />
               </li>
             );
